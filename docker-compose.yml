@@ -1,0 +1,13 @@
+version: '3'
+services: 
+    web: # this app name. any string can be given
+        build: 
+            context: . # specify the folder contains the project files
+            dockerfile: Dockerfile.dev # specify the docker file name
+        ports: 
+            - "3000:3000" # port mapping outside_port_no: container_port_no
+        volumes: 
+            - /app/node_modules
+            - .:/app     
+        environment: 
+            - CHOKIDAR_USEPOLLING=true       
